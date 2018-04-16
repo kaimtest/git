@@ -14,4 +14,9 @@ public class Controller {
     public String myform() {
         return "form";
     }
+    @RequestMapping("/in")
+    public String index() {
+        return "index";
+    }
+
 }
