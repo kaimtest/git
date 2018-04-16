@@ -10,7 +10,7 @@ public class Controller {
     public String myTabl() {
         return "tabl";
     }
-    @RequestMapping("/")
+    @RequestMapping("/form")
     public String myform() {
         return "form";
     }
