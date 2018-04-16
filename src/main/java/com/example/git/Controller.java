@@ -10,4 +10,8 @@ public class Controller {
     public String myTabl() {
         return "tabl";
     }
+    @RequestMapping("/")
+    public String myform() {
+        return "form";
+    }
 }
