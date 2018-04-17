@@ -1,22 +1,31 @@
 package com.example.git;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-//коммит на сервере
 @org.springframework.stereotype.Controller
 public class Controller {
 
+    @Autowired
+    Repositories repositories;
+
     @RequestMapping("/")
-    public String myTabl() {
-        return "tabl";
+    public String myIndex(Model model) {
+        model.addAttribute("message", repositories.findAll());
+        return "index";
     }
-    @RequestMapping("/forma")
-    public String myform() {
+    @RequestMapping("/form")
+    public String myTabl(Model model) {
+        model.addAttribute("Users",new Users());
         return "form";
     }
-    @RequestMapping("/in")
-    public String index() {
-        return "index";
+
+    @RequestMapping("/save")
+    public String mySave(@ModelAttribute Users users) {
+        repositories.save(users);
+        return "redirect:/";
     }
 
 }
