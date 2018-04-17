@@ -14,12 +14,18 @@ public class Controller {
 
     @RequestMapping("/")
     public String myIndex(Model model) {
-        model.addAttribute("message",repositories.findAll());
+        model.addAttribute("message", repositories.findAll());
         return "index";
     }
+    @RequestMapping("/form")
+    public String myTabl(Model model) {
+        model.addAttribute("Users",new Users());
+        return "form";
+    }
 
-    @RequestMapping("/tabl")
-    public String myTabl(@ModelAttribute Users users){
-        return "tabl";
+    @RequestMapping("/save")
+    public String mySave(@ModelAttribute Users users){
+        repositories.save(users);
+        return "redirect:/";
     }
 }

@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<form action="/" th:object="@{Users}" method="post">
+<form th:action="@{/save}" th:object="${Users}" method="post">
     <input type="text" th:field="*{name}"/>
     <input type="text" th:field="*{age}"/>
     <button type="submit">Save</button>
